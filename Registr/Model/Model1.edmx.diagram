@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="5964c89958df4d9eb33a47c626ad6b52" Name="Diagram1">
+        <EntityTypeShape EntityType="SportModel7.Aboniment" Width="1.5" PointX="8" PointY="7.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="SportModel7.DanniePersonal" Width="1.5" PointX="3" PointY="11.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="SportModel7.Doljnosti" Width="1.5" PointX="0.75" PointY="12" IsExpanded="true" />
+        <EntityTypeShape EntityType="SportModel7.InfoZanitia" Width="1.5" PointX="5.25" PointY="3.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="SportModel7.Klient" Width="1.5" PointX="3" PointY="7" IsExpanded="true" />
+        <EntityTypeShape EntityType="SportModel7.Kolichistvo" Width="1.5" PointX="5.25" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="SportModel7.Oplata" Width="1.5" PointX="10.25" PointY="7.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="SportModel7.Polizovateli" Width="1.5" PointX="5.25" PointY="11.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="SportModel7.SposobOplati" Width="1.5" PointX="8" PointY="4.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="SportModel7.sysdiagrams" Width="1.5" PointX="7.75" PointY="1.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="SportModel7.TipAbonimenta" Width="1.5" PointX="5.75" PointY="7.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="SportModel7.Tipzanitia" Width="1.5" PointX="0.75" PointY="4" IsExpanded="true" />
+        <EntityTypeShape EntityType="SportModel7.Zanitie" Width="1.5" PointX="3" PointY="3.5" IsExpanded="true" />
+        <AssociationConnector Association="SportModel7.FK_Aboniment_TipAbonimenta" ManuallyRouted="false" />
+        <AssociationConnector Association="SportModel7.FK_Oplata_Aboniment" ManuallyRouted="false" />
+        <AssociationConnector Association="SportModel7.FK_DanniePersonal_Doljnosti" ManuallyRouted="false" />
+        <AssociationConnector Association="SportModel7.FK_InfoZanitia_DanniePersonal" ManuallyRouted="false" />
+        <AssociationConnector Association="SportModel7.FK_Polizovateli_DanniePersonal" ManuallyRouted="false" />
+        <AssociationConnector Association="SportModel7.FK_InfoZanitia_Zanitie" ManuallyRouted="false" />
+        <AssociationConnector Association="SportModel7.FK_Kolichistvo_Klient" ManuallyRouted="false" />
+        <AssociationConnector Association="SportModel7.FK_Kolichistvo_Zanitie" ManuallyRouted="false" />
+        <AssociationConnector Association="SportModel7.FK_Oplata_SposobOplati" ManuallyRouted="false" />
+        <AssociationConnector Association="SportModel7.FK_Zanitie_Tipzanitia" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>
