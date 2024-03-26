@@ -5,7 +5,8 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Sport"
         mc:Ignorable="d"
-        Title="Sport" MinHeight="450" MinWidth="800" Icon="Resources/photo_2023-10-11_14-55-39.png">
+        ResizeMode="NoResize"
+        Title="Sport" MinHeight="450" MinWidth="1200" MaxWidth= "1250" MaxHeight="700" Icon="Resources/photo_2023-10-11_14-55-39.png">
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="60*"/>

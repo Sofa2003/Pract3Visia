@@ -10,12 +10,12 @@ namespace Sport
 {
     public class Helper
     {
-        private static LibraryBaseEntities s_firstDBEntities;
-        public static LibraryBaseEntities GetContext()
+        private static SportEntities s_firstDBEntities;
+        public static SportEntities GetContext()
         {   
             if(s_firstDBEntities== null)
             {
-                s_firstDBEntities= new LibraryBaseEntities();
+                s_firstDBEntities= new SportEntities();
             }
             return s_firstDBEntities;
         }
@@ -24,7 +24,7 @@ namespace Sport
             s_firstDBEntities.Polizovateli.Add(user);
             s_firstDBEntities.SaveChanges();
         }
-        public void UpdateUsers(Models.Polizovateli user)
+        public static void UpdateUsers(Models.Polizovateli user)
         {
             s_firstDBEntities.Entry(user).State= EntityState.Modified;
             s_firstDBEntities.SaveChanges();

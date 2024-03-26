@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="Хранилище SportModel7" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+      <Schema Namespace="Хранилище SportModel" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="Aboniment">
           <Key>
             <PropertyRef Name="KodAboniment" />
@@ -26,8 +26,8 @@
           <Property Name="FamiliaPersonala" Type="nvarchar" MaxLength="100" Nullable="false" />
           <Property Name="OthestvoPersonala" Type="nvarchar" MaxLength="100" />
           <Property Name="DataRojdenia" Type="datetime" />
-          <Property Name="NomerTelefona" Type="int" />
-          <Property Name="Doljnosti" Type="int" Nullable="false" />
+          <Property Name="NomerTelefona" Type="int" Nullable="false" />
+          <Property Name="DoljnostiPersonal" Type="int" Nullable="false" />
           <Property Name="StajRaboti" Type="int" />
         </EntityType>
         <EntityType Name="Doljnosti">
@@ -58,6 +58,8 @@
           <Property Name="NomerTelefona" Type="nvarchar" MaxLength="50" Nullable="false" />
           <Property Name="Email" Type="nvarchar(max)" />
           <Property Name="DataRojdeniaKlient" Type="datetime" />
+          <Property Name="SeriaPasport" Type="char" MaxLength="4" Nullable="false" />
+          <Property Name="NomerPasport" Type="char" MaxLength="6" />
         </EntityType>
         <EntityType Name="Kolichistvo">
           <Key>
@@ -146,7 +148,7 @@
               <PropertyRef Name="KodDolj" />
             </Principal>
             <Dependent Role="DanniePersonal">
-              <PropertyRef Name="Doljnosti" />
+              <PropertyRef Name="DoljnostiPersonal" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -222,7 +224,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_Polizovateli_DanniePersonal">
+        <Association Name="FK_Polizovateli_DanniePersonal1">
           <End Role="DanniePersonal" Type="Self.DanniePersonal" Multiplicity="1" />
           <End Role="Polizovateli" Type="Self.Polizovateli" Multiplicity="0..1" />
           <ReferentialConstraint>
@@ -246,7 +248,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <EntityContainer Name="Хранилище SportModel7Container">
+        <EntityContainer Name="Хранилище SportModelContainer">
           <EntitySet Name="Aboniment" EntityType="Self.Aboniment" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="DanniePersonal" EntityType="Self.DanniePersonal" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Doljnosti" EntityType="Self.Doljnosti" Schema="dbo" store:Type="Tables" />
@@ -292,7 +294,7 @@
             <End Role="SposobOplati" EntitySet="SposobOplati" />
             <End Role="Oplata" EntitySet="Oplata" />
           </AssociationSet>
-          <AssociationSet Name="FK_Polizovateli_DanniePersonal" Association="Self.FK_Polizovateli_DanniePersonal">
+          <AssociationSet Name="FK_Polizovateli_DanniePersonal1" Association="Self.FK_Polizovateli_DanniePersonal1">
             <End Role="DanniePersonal" EntitySet="DanniePersonal" />
             <End Role="Polizovateli" EntitySet="Polizovateli" />
           </AssociationSet>
@@ -305,7 +307,7 @@
     </edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
-      <Schema Namespace="SportModel7" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+      <Schema Namespace="SportModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
         <EntityType Name="Aboniment">
           <Key>
             <PropertyRef Name="KodAboniment" />
@@ -329,12 +331,12 @@
           <Property Name="FamiliaPersonala" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="OthestvoPersonala" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
           <Property Name="DataRojdenia" Type="DateTime" Precision="3" />
-          <Property Name="NomerTelefona" Type="Int32" />
-          <Property Name="Doljnosti" Type="Int32" Nullable="false" />
+          <Property Name="NomerTelefona" Type="Int32" Nullable="false" />
+          <Property Name="DoljnostiPersonal" Type="Int32" Nullable="false" />
           <Property Name="StajRaboti" Type="Int32" />
-          <NavigationProperty Name="Doljnosti1" Relationship="Self.FK_DanniePersonal_Doljnosti" FromRole="DanniePersonal" ToRole="Doljnosti" />
+          <NavigationProperty Name="Doljnosti" Relationship="Self.FK_DanniePersonal_Doljnosti" FromRole="DanniePersonal" ToRole="Doljnosti" />
           <NavigationProperty Name="InfoZanitia" Relationship="Self.FK_InfoZanitia_DanniePersonal" FromRole="DanniePersonal" ToRole="InfoZanitia" />
-          <NavigationProperty Name="Polizovateli" Relationship="Self.FK_Polizovateli_DanniePersonal" FromRole="DanniePersonal" ToRole="Polizovateli" />
+          <NavigationProperty Name="Polizovateli" Relationship="Self.FK_Polizovateli_DanniePersonal1" FromRole="DanniePersonal" ToRole="Polizovateli" />
         </EntityType>
         <EntityType Name="Doljnosti">
           <Key>
@@ -367,6 +369,8 @@
           <Property Name="NomerTelefona" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="Email" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Name="DataRojdeniaKlient" Type="DateTime" Precision="3" />
+          <Property Name="SeriaPasport" Type="String" MaxLength="4" FixedLength="true" Unicode="false" Nullable="false" />
+          <Property Name="NomerPasport" Type="String" MaxLength="6" FixedLength="true" Unicode="false" />
           <NavigationProperty Name="Kolichistvo" Relationship="Self.FK_Kolichistvo_Klient" FromRole="Klient" ToRole="Kolichistvo" />
         </EntityType>
         <EntityType Name="Kolichistvo">
@@ -399,7 +403,7 @@
           <Property Name="KodPolizovatieli" Type="Int32" Nullable="false" />
           <Property Name="LoginPolizovateli" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="ParoliPolizovateli" Type="String" MaxLength="200" FixedLength="false" Unicode="true" Nullable="false" />
-          <NavigationProperty Name="DanniePersonal" Relationship="Self.FK_Polizovateli_DanniePersonal" FromRole="Polizovateli" ToRole="DanniePersonal" />
+          <NavigationProperty Name="DanniePersonal" Relationship="Self.FK_Polizovateli_DanniePersonal1" FromRole="Polizovateli" ToRole="DanniePersonal" />
         </EntityType>
         <EntityType Name="SposobOplati">
           <Key>
@@ -479,7 +483,7 @@
               <PropertyRef Name="KodDolj" />
             </Principal>
             <Dependent Role="DanniePersonal">
-              <PropertyRef Name="Doljnosti" />
+              <PropertyRef Name="DoljnostiPersonal" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -495,7 +499,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_Polizovateli_DanniePersonal">
+        <Association Name="FK_Polizovateli_DanniePersonal1">
           <End Role="DanniePersonal" Type="Self.DanniePersonal" Multiplicity="1" />
           <End Role="Polizovateli" Type="Self.Polizovateli" Multiplicity="0..1" />
           <ReferentialConstraint>
@@ -567,7 +571,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <EntityContainer Name="SportEntities7" annotation:LazyLoadingEnabled="true">
+        <EntityContainer Name="SportEntities2" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="Aboniment" EntityType="Self.Aboniment" />
           <EntitySet Name="DanniePersonal" EntityType="Self.DanniePersonal" />
           <EntitySet Name="Doljnosti" EntityType="Self.Doljnosti" />
@@ -597,7 +601,7 @@
             <End Role="DanniePersonal" EntitySet="DanniePersonal" />
             <End Role="InfoZanitia" EntitySet="InfoZanitia" />
           </AssociationSet>
-          <AssociationSet Name="FK_Polizovateli_DanniePersonal" Association="Self.FK_Polizovateli_DanniePersonal">
+          <AssociationSet Name="FK_Polizovateli_DanniePersonal1" Association="Self.FK_Polizovateli_DanniePersonal1">
             <End Role="DanniePersonal" EntitySet="DanniePersonal" />
             <End Role="Polizovateli" EntitySet="Polizovateli" />
           </AssociationSet>
@@ -627,9 +631,9 @@
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-        <EntityContainerMapping StorageEntityContainer="Хранилище SportModel7Container" CdmEntityContainer="SportEntities7">
+        <EntityContainerMapping StorageEntityContainer="Хранилище SportModelContainer" CdmEntityContainer="SportEntities2">
           <EntitySetMapping Name="Aboniment">
-            <EntityTypeMapping TypeName="SportModel7.Aboniment">
+            <EntityTypeMapping TypeName="SportModel.Aboniment">
               <MappingFragment StoreEntitySet="Aboniment">
                 <ScalarProperty Name="KodAboniment" ColumnName="KodAboniment" />
                 <ScalarProperty Name="Client" ColumnName="Client" />
@@ -642,7 +646,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="DanniePersonal">
-            <EntityTypeMapping TypeName="SportModel7.DanniePersonal">
+            <EntityTypeMapping TypeName="SportModel.DanniePersonal">
               <MappingFragment StoreEntitySet="DanniePersonal">
                 <ScalarProperty Name="KodPersonal" ColumnName="KodPersonal" />
                 <ScalarProperty Name="ImiPersonal" ColumnName="ImiPersonal" />
@@ -650,13 +654,13 @@
                 <ScalarProperty Name="OthestvoPersonala" ColumnName="OthestvoPersonala" />
                 <ScalarProperty Name="DataRojdenia" ColumnName="DataRojdenia" />
                 <ScalarProperty Name="NomerTelefona" ColumnName="NomerTelefona" />
-                <ScalarProperty Name="Doljnosti" ColumnName="Doljnosti" />
+                <ScalarProperty Name="DoljnostiPersonal" ColumnName="DoljnostiPersonal" />
                 <ScalarProperty Name="StajRaboti" ColumnName="StajRaboti" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Doljnosti">
-            <EntityTypeMapping TypeName="SportModel7.Doljnosti">
+            <EntityTypeMapping TypeName="SportModel.Doljnosti">
               <MappingFragment StoreEntitySet="Doljnosti">
                 <ScalarProperty Name="KodDolj" ColumnName="KodDolj" />
                 <ScalarProperty Name="NameDolj" ColumnName="NameDolj" />
@@ -664,7 +668,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="InfoZanitia">
-            <EntityTypeMapping TypeName="SportModel7.InfoZanitia">
+            <EntityTypeMapping TypeName="SportModel.InfoZanitia">
               <MappingFragment StoreEntitySet="InfoZanitia">
                 <ScalarProperty Name="KodZanitia" ColumnName="KodZanitia" />
                 <ScalarProperty Name="Zanitia" ColumnName="Zanitia" />
@@ -675,7 +679,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Klient">
-            <EntityTypeMapping TypeName="SportModel7.Klient">
+            <EntityTypeMapping TypeName="SportModel.Klient">
               <MappingFragment StoreEntitySet="Klient">
                 <ScalarProperty Name="KodKlienta" ColumnName="KodKlienta" />
                 <ScalarProperty Name="Aboniment" ColumnName="Aboniment" />
@@ -684,11 +688,13 @@
                 <ScalarProperty Name="NomerTelefona" ColumnName="NomerTelefona" />
                 <ScalarProperty Name="Email" ColumnName="Email" />
                 <ScalarProperty Name="DataRojdeniaKlient" ColumnName="DataRojdeniaKlient" />
+                <ScalarProperty Name="SeriaPasport" ColumnName="SeriaPasport" />
+                <ScalarProperty Name="NomerPasport" ColumnName="NomerPasport" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Kolichistvo">
-            <EntityTypeMapping TypeName="SportModel7.Kolichistvo">
+            <EntityTypeMapping TypeName="SportModel.Kolichistvo">
               <MappingFragment StoreEntitySet="Kolichistvo">
                 <ScalarProperty Name="KodKolich" ColumnName="KodKolich" />
                 <ScalarProperty Name="KodZanitia" ColumnName="KodZanitia" />
@@ -697,7 +703,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Oplata">
-            <EntityTypeMapping TypeName="SportModel7.Oplata">
+            <EntityTypeMapping TypeName="SportModel.Oplata">
               <MappingFragment StoreEntitySet="Oplata">
                 <ScalarProperty Name="KodOplati" ColumnName="KodOplati" />
                 <ScalarProperty Name="Client" ColumnName="Client" />
@@ -709,7 +715,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Polizovateli">
-            <EntityTypeMapping TypeName="SportModel7.Polizovateli">
+            <EntityTypeMapping TypeName="SportModel.Polizovateli">
               <MappingFragment StoreEntitySet="Polizovateli">
                 <ScalarProperty Name="KodPolizovatieli" ColumnName="KodPolizovatieli" />
                 <ScalarProperty Name="LoginPolizovateli" ColumnName="LoginPolizovateli" />
@@ -718,7 +724,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="SposobOplati">
-            <EntityTypeMapping TypeName="SportModel7.SposobOplati">
+            <EntityTypeMapping TypeName="SportModel.SposobOplati">
               <MappingFragment StoreEntitySet="SposobOplati">
                 <ScalarProperty Name="KodSposOplati" ColumnName="KodSposOplati" />
                 <ScalarProperty Name="Sposob" ColumnName="Sposob" />
@@ -726,7 +732,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="sysdiagrams">
-            <EntityTypeMapping TypeName="SportModel7.sysdiagrams">
+            <EntityTypeMapping TypeName="SportModel.sysdiagrams">
               <MappingFragment StoreEntitySet="sysdiagrams">
                 <ScalarProperty Name="name" ColumnName="name" />
                 <ScalarProperty Name="principal_id" ColumnName="principal_id" />
@@ -737,7 +743,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="TipAbonimenta">
-            <EntityTypeMapping TypeName="SportModel7.TipAbonimenta">
+            <EntityTypeMapping TypeName="SportModel.TipAbonimenta">
               <MappingFragment StoreEntitySet="TipAbonimenta">
                 <ScalarProperty Name="KodAboniment" ColumnName="KodAboniment" />
                 <ScalarProperty Name="NameTip" ColumnName="NameTip" />
@@ -745,7 +751,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Tipzanitia">
-            <EntityTypeMapping TypeName="SportModel7.Tipzanitia">
+            <EntityTypeMapping TypeName="SportModel.Tipzanitia">
               <MappingFragment StoreEntitySet="Tipzanitia">
                 <ScalarProperty Name="Kodnipzanitia" ColumnName="Kodnipzanitia" />
                 <ScalarProperty Name="Nametip" ColumnName="Nametip" />
@@ -753,7 +759,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Zanitie">
-            <EntityTypeMapping TypeName="SportModel7.Zanitie">
+            <EntityTypeMapping TypeName="SportModel.Zanitie">
               <MappingFragment StoreEntitySet="Zanitie">
                 <ScalarProperty Name="KodZanitia" ColumnName="KodZanitia" />
                 <ScalarProperty Name="NazvanieZanitia" ColumnName="NazvanieZanitia" />

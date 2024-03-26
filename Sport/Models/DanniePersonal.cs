@@ -26,13 +26,13 @@ namespace Sport.Models
         public string OthestvoPersonala { get; set; }
         public Nullable<System.DateTime> DataRojdenia { get; set; }
         public string NomerTelefona { get; set; }
-        public Nullable<int> Doljnosti { get; set; }
-        public int Polizovatel { get; set; }
+        public int DoljnostiPersonal { get; set; }
         public Nullable<int> StajRaboti { get; set; }
+        public string E_mail { get; set; }
     
-        public virtual Doljnosti Doljnosti1 { get; set; }
-        public virtual Polizovateli Polizovateli { get; set; }
+        public virtual Doljnosti Doljnosti { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<InfoZanitia> InfoZanitia { get; set; }
+        public virtual Polizovateli Polizovateli { get; set; }
     }
 }

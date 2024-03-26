@@ -9,15 +9,45 @@
       Title="Admin">
 
     <Grid>
-        <Grid.RowDefinitions>
-            <RowDefinition Height="60*"/>
-            <RowDefinition Height="349*"/>
-        </Grid.RowDefinitions>
-        <Grid Grid.Row="0" Background="#FFA500">
-            <Image Width="45" Height="45" HorizontalAlignment="Left" Margin="5" Source="/Resources/photo_2023-10-11_14-55-39.png"/>
-            <Button x:Name="btnBack" HorizontalAlignment="Right" Content="Назад" />
-        </Grid>
-        <Frame x:Name="Frm" Grid.Row="1" NavigationUIVisibility="Hidden" />
-        <Label Content="Label" HorizontalAlignment="Left" Margin="414,116,0,0" Grid.Row="1" VerticalAlignment="Top"/>
+
+        <Label x:Name="lbtext" Content="Label" HorizontalAlignment="Left" Margin="10,7,0,0" Grid.Row="1" VerticalAlignment="Top"/>
+
+
+        <ListView Name="LViemProduct" Grid.Column="0" Margin="0,78,0,45" d:ItemsSource="{d:SampleData ItemCount=1}" SelectionChanged="LViemProduct_SelectionChanged">
+            <ListView.ItemsPanel>
+                <ItemsPanelTemplate>
+                    <UniformGrid Columns="3"/>
+                </ItemsPanelTemplate>
+            </ListView.ItemsPanel>
+            <ListView.ItemContainerStyle>
+                <Style TargetType="ListViewItem">
+                    <Setter Property="HorizontalContentAlignment" Value="Stretch"/>
+                </Style>
+            </ListView.ItemContainerStyle>
+            <ListView.ItemTemplate>
+                <DataTemplate>
+
+                    <Border BorderBrush="Black" BorderThickness="1" Background="{Binding Background}">
+                        <Grid>
+                            
+                            
+                            <StackPanel x:Name="PanelEmp" Grid.Column="1" Margin="5">
+                                <Image Width="180" Height="100" Margin="5" Source="/Pages/hh0TY2S5Cxs.jpg"/>
+                                <TextBlock Text="{Binding ImiPersonal}" FontWeight="Bold" TextAlignment="Center"/>
+                                <TextBlock Text="{Binding FamiliaPersonala}" TextAlignment="Center"/>
+                                <TextBlock Text="{Binding OthestvoPersonala}" TextAlignment="Center"/>
+                                <TextBlock Text="{Binding Doljnosti.NameDolj}" TextAlignment="Center"/>
+                                <TextBlock Text="{Binding NomerTelefona}" TextAlignment="Center"/>
+                            </StackPanel>
+                        </Grid>
+                    </Border>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+        <TextBox x:Name="tbsearch" HorizontalAlignment="Left" Margin="19,51,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="186" TextChanged="tbsearch_TextChanged"/>
+        <ComboBox x:Name="comb1" HorizontalAlignment="Left" Margin="222,37,0,0" VerticalAlignment="Top" Width="205" />
+        <Button x:Name="btfilter" Content="Фильтр" HorizontalAlignment="Left" Margin="448,33,0,0" VerticalAlignment="Top" Click="btfilter_Click" />
+        <Button x:Name="btadd" Content="Добавить" HorizontalAlignment="Left" Margin="588,33,0,0" VerticalAlignment="Top" Click="btadd_Click"  />
+
     </Grid>
 </Page>

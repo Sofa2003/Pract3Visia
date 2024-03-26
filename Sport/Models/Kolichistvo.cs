@@ -15,8 +15,8 @@ namespace Sport.Models
     public partial class Kolichistvo
     {
         public int KodKolich { get; set; }
-        public Nullable<int> KodZanitia { get; set; }
-        public Nullable<int> KodClienta { get; set; }
+        public int KodZanitia { get; set; }
+        public int KodClienta { get; set; }
     
         public virtual Klient Klient { get; set; }
         public virtual Zanitie Zanitie { get; set; }

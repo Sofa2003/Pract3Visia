@@ -14,17 +14,10 @@ namespace Sport.Models
     
     public partial class Polizovateli
     {
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public Polizovateli()
-        {
-            this.DanniePersonal = new HashSet<DanniePersonal>();
-        }
-    
         public int KodPolizovatieli { get; set; }
         public string LoginPolizovateli { get; set; }
         public string ParoliPolizovateli { get; set; }
     
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<DanniePersonal> DanniePersonal { get; set; }
+        public virtual DanniePersonal DanniePersonal { get; set; }
     }
 }

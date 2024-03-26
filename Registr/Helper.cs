@@ -11,12 +11,12 @@ namespace Registr
 {
     internal class Helper
     {
-        private static SportEntities7 s_firstDBEntities;
-        public static SportEntities7 GetContext()
+        private static SportEntities2 s_firstDBEntities;
+        public static SportEntities2 GetContext()
         {
             if (s_firstDBEntities == null)
             {
-                s_firstDBEntities = new SportEntities7();
+                s_firstDBEntities = new SportEntities2();
             }
             return s_firstDBEntities;
         }

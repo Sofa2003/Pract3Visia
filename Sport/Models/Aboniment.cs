@@ -24,12 +24,10 @@ namespace Sport.Models
         public int Client { get; set; }
         public Nullable<System.DateTime> DataPokupki { get; set; }
         public Nullable<System.DateTime> DataOkonhanie { get; set; }
-        public Nullable<int> TipAboniment { get; set; }
+        public int TipAboniment { get; set; }
         public Nullable<int> Summa { get; set; }
-        public Nullable<int> SposobOplati { get; set; }
+        public int SposobOplati { get; set; }
     
-        public virtual Klient Klient { get; set; }
-        public virtual SposobOplati SposobOplati1 { get; set; }
         public virtual TipAbonimenta TipAbonimenta { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Oplata> Oplata { get; set; }

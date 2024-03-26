@@ -17,13 +17,13 @@ namespace Sport.Models
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public SposobOplati()
         {
-            this.Aboniment = new HashSet<Aboniment>();
+            this.Oplata = new HashSet<Oplata>();
         }
     
         public int KodSposOplati { get; set; }
         public string Sposob { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Aboniment> Aboniment { get; set; }
+        public virtual ICollection<Oplata> Oplata { get; set; }
     }
 }

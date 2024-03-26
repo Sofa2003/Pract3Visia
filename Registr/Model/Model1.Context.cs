@@ -13,10 +13,10 @@ namespace Registr.Model
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
-    public partial class SportEntities7 : DbContext
+    public partial class SportEntities2 : DbContext
     {
-        public SportEntities7()
-            : base("name=SportEntities7")
+        public SportEntities2()
+            : base("name=SportEntities2")
         {
         }
     

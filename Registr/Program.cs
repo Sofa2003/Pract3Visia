@@ -19,7 +19,7 @@ namespace Registr
 
                 try
                 {
-                    SportEntities7 sport = new SportEntities7();
+                    SportEntities2 sport = new SportEntities2();
 
 
                     Console.WriteLine("Введите имя пользователя: ");
@@ -81,7 +81,7 @@ namespace Registr
                         OthestvoPersonala = Patronomyc,
                         DataRojdenia = date,
                         NomerTelefona = phonenumber,
-                        Doljnosti = doljnosti,
+                        DoljnostiPersonal = doljnosti,
                         StajRaboti = Staj
 
 

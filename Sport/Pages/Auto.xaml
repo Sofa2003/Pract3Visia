@@ -16,16 +16,20 @@
             <ColumnDefinition Width="260"/>
         </Grid.ColumnDefinitions>
         <StackPanel Grid.Row="1" Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Center">
-            <TextBlock Text="Логин:"/>
+            <TextBlock Text="Логин:" FontSize="14"/>
             <TextBox x:Name="txtbLogin"/>
             <TextBlock Text="Пароль:"/>
             <PasswordBox x:Name="pswbPassword"/>
+            <Label x:Name="txtzabil" Content="Забыли пароль?" Height="53" Width="135" HorizontalAlignment="Right" MouseLeftButtonUp="ZabilClick" />
             <TextBlock x:Name="txtBlockCaptcha" />
             <TextBox Visibility="Hidden" x:Name="txtboxCaptcha"/>
             <StackPanel Orientation="Horizontal" Height="80" HorizontalAlignment="Center">
                 <Button x:Name="btnEnterGuests" Margin="5,15,5,5" Content="Войти как гость" Click="btnEnterGuests_Click"/>
-                <Button x:Name="btnEnter" Margin="5,15,5,5" Content="Войти" Click="btnEnter_Click"/>
+                <Button x:Name="btnEnter" Margin="5,15,5,5" Content="Войти" Click="btnEnter_Click" IsDefault="True"/>
             </StackPanel>
         </StackPanel>
+        <Label x:Name="lblTime" Content="" HorizontalAlignment="Center" Margin="0,49,0,0" VerticalAlignment="Top" Grid.Column="1" Foreground="Red"/>
     </Grid>
 </Page>
+
+    

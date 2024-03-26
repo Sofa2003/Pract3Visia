@@ -17,7 +17,7 @@ namespace Sport.Models
         public int KodZanitia { get; set; }
         public int Zanitia { get; set; }
         public System.TimeSpan VremiZanitia { get; set; }
-        public Nullable<int> Trener { get; set; }
+        public int Trener { get; set; }
         public Nullable<System.DateTime> DataZanitia { get; set; }
     
         public virtual DanniePersonal DanniePersonal { get; set; }

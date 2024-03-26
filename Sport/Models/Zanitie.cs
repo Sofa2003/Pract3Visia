@@ -24,7 +24,7 @@ namespace Sport.Models
         public int KodZanitia { get; set; }
         public string NazvanieZanitia { get; set; }
         public string OpisanieZanitia { get; set; }
-        public Nullable<int> TipZanitia { get; set; }
+        public int TipZanitia { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<InfoZanitia> InfoZanitia { get; set; }

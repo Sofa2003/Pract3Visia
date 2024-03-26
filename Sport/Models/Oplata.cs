@@ -19,8 +19,9 @@ namespace Sport.Models
         public int Aboniment { get; set; }
         public Nullable<System.DateTime> DataOplati { get; set; }
         public Nullable<int> Summa { get; set; }
-        public Nullable<int> SposobOplati { get; set; }
+        public int SposobOplati { get; set; }
     
         public virtual Aboniment Aboniment1 { get; set; }
+        public virtual SposobOplati SposobOplati1 { get; set; }
     }
 }

@@ -17,7 +17,6 @@ namespace Sport.Models
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public Klient()
         {
-            this.Aboniment1 = new HashSet<Aboniment>();
             this.Kolichistvo = new HashSet<Kolichistvo>();
         }
     
@@ -28,9 +27,9 @@ namespace Sport.Models
         public string NomerTelefona { get; set; }
         public string Email { get; set; }
         public Nullable<System.DateTime> DataRojdeniaKlient { get; set; }
+        public string SeriaPasport { get; set; }
+        public string NomerPasport { get; set; }
     
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Aboniment> Aboniment1 { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Kolichistvo> Kolichistvo { get; set; }
     }
